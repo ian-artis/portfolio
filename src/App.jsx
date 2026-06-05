@@ -41,7 +41,7 @@ function App() {
     <main>
       <nav className="navbar">
         <a href="#" className="logo">
-          Ian Artis
+          <img src="air21-logo.png" alt="AIR21 logo" />
         </a>
 
         <div className="nav-links">

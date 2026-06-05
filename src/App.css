@@ -39,9 +39,23 @@ main {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 1.15rem;
   font-weight: 800;
   color: #f8fafc;
+}
+
+.logo img {
+  width: 60px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.logo span {
+  letter-spacing: 0.5px;
 }
 
 .nav-links {
