@@ -1,47 +1,14 @@
 import "./App.css";
+import { projects } from "./data/projects";
+
+const baseUrl = import.meta.env.BASE_URL;
 
 function App() {
-  const projects = [
-    {
-      title: "Car Rental Booking System",
-      type: "Featured Full-Stack Project",
-      description:
-        "A full-stack booking application where users can browse vehicles, select pickup and return dates, and create reservations. Includes admin features for managing cars, customers, and bookings.",
-      tech: ["React", "Node.js", "Express", "MySQL"],
-      github: "https://github.com/YOUR_USERNAME/car-rental-app",
-      live: "https://your-live-demo-link.com",
-      image: "/project-preview.png",
-      buttons: ["GitHub", "Live Demo"],
-    },
-    {
-      title: "Course Booking API",
-      type: "Backend API Project",
-      description:
-        "A REST API for managing users, courses, and enrollments. Built with authentication, protected routes, controllers, routes, and database models.",
-      tech: ["Node.js", "Express", "MongoDB", "JWT"],
-      github: "https://github.com/YOUR_USERNAME/course-booking-api",
-      docs: "https://documenter.getpostman.com/your-docs-link",
-      image: "/project-preview.png",
-      buttons: ["GitHub", "API Docs"],
-    },
-    {
-      title: "E-Commerce Website",
-      type: "Frontend Project",
-      description:
-        "A responsive ecommerce interface with product cards, cart-style UI, clean layout, and reusable React components.",
-      tech: ["React", "JavaScript", "CSS"],
-      github: "https://github.com/YOUR_USERNAME/ecommerce-app",
-      live: "https://your-live-demo-link.com",
-      image: "/project-preview.png",
-      buttons: ["GitHub", "Live Demo"],
-    },
-  ];
-
   return (
     <main>
       <nav className="navbar">
         <a href="#" className="logo">
-          <img src="air21-logo.png" alt="AIR21 logo" />
+          <img src={`${baseUrl}air21-logo.png`} alt="AIR21 logo" />
         </a>
 
         <div className="nav-links">
@@ -73,7 +40,12 @@ function App() {
               View Projects
             </a>
 
-            <a href="/Ian-Artis-Resume.pdf" className="btn outline" target="_blank">
+            <a
+              href={`${baseUrl}Ian-Artis-Resume.pdf`}
+              className="btn outline"
+              target="_blank"
+              rel="noreferrer"
+            >
               Resume
             </a>
 
@@ -148,8 +120,9 @@ function App() {
         <div className="projects-grid">
           {projects.map((project) => (
             <article className="project-card" key={project.title}>
-              <div className="project-image">
-                <img src={project.image} alt={`${project.title} preview`} />
+              <div className="project-image project-placeholder">
+                <span>{project.type}</span>
+                <h3>{project.title}</h3>
               </div>
 
               <div className="project-content">
@@ -164,9 +137,11 @@ function App() {
                 </div>
 
                 <div className="project-links">
-                  <a href={project.github} target="_blank" rel="noreferrer">
-                    GitHub
-                  </a>
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noreferrer">
+                      GitHub
+                    </a>
+                  )}
 
                   {project.live && (
                     <a href={project.live} target="_blank" rel="noreferrer">
@@ -197,10 +172,16 @@ function App() {
 
         <div className="contact-links">
           <a href="mailto:ian.stephen.artis@gmail.com">Email</a>
+
           <a href="https://github.com/ian-artis" target="_blank" rel="noreferrer">
             GitHub
           </a>
-          <a href="https://www.linkedin.com/in/ian-stephen-artis/" target="_blank" rel="noreferrer">
+
+          <a
+            href="https://www.linkedin.com/in/ian-stephen-artis/"
+            target="_blank"
+            rel="noreferrer"
+          >
             LinkedIn
           </a>
         </div>
